@@ -1,10 +1,13 @@
 // create our new router
 const router = require("express").Router()
+const TodoRouter = require('./todo')
 ///////////////////////////////
 // Router Specific Middleware
 ////////////////////////////////
+router.use('/todos', TodoRouter)
+
 ////////////////////////////////
-// Router Specific Routes
+// Router-specific Routes
 ////////////////////////////////
 router.get("/", (req, res) => {
     res.render("home")
