@@ -12,6 +12,7 @@ const morgan = require("morgan")
 const cors = require("cors")
 // GET PORT FROM ENV OR DEFAULT PORT
 const PORT = process.env.PORT || "2021"
+const HomeRouter = require("./routes/home")
 
 /////////////////////////////////////
 // Create Express Application Object
@@ -33,9 +34,11 @@ app.use(morgan("tiny")) // Request Logging
 app.use(express.json()) // Parse json bodies
 app.use(express.urlencoded({ extended: false })) //parse bodies from form submissions
 
-/////////////////////////////////////
+////////////////////////////////
 // Routes and Routers
-/////////////////////////////////////
+////////////////////////////////
+// pass ALL Routes to the HomeRouter
+app.use("/", HomeRouter)
 
 // Test Route
 app.get("/", (req, res) => {
