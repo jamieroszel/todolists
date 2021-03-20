@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Todo App</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>Create a new ToDo!</h1>
+    <a href="/todos/new"><button>Back to main page</button></a>
+    <main>
+        <form action="/todos/" method="post">
+        
+            <select name=list>
+                <% for (list of lists) { %>
+
+                    <option value="<%= list._id %>"><%= list.name %></option>
+
+                <% } %>
+            </select>   
+            
+            <input type="text" placeholder="new todo text" name="subject"/>
+            <input type="submit" value="create new todo"/>
+        </form>
+    </main>
+    
+</body>
+</html>

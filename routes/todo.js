@@ -13,6 +13,9 @@ const TodoController = require('../controllers/todo')
 // index route get request to '/todos'
 router.get("/", TodoController.index)
 
+// new todo page
+router.get('new', TodoController.new)
+
 //////////////////////////////////
 // Export the router
 //////////////////////////////////

@@ -1,13 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Todo App</title>
-    <link rel="stylesheet" href="/style.css" />
-  </head>
-  <body>
-    <h1>These are my Todos!</h1>
-  </body>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1> These Are My Todos! </h1>
+    <a href="/todos/new"><button>New Todo</button></a>
+    <main>
+        <% for (list of lists) { %>
+            <div class="todoindex_list">
+                <h2 class="todoindex_list_name"><%= list.name %></h2>
+                <ul class="todoindex_todos">
+                    <% for (todo of list.todos) {%>
+                        <l1><%= todo.subject %></l1>
+                    <% } %>
+                </ul>
+            </div>
+        <% } %>
+    </main>
+</body>
 </html>
