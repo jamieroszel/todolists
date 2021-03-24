@@ -22,10 +22,33 @@ const newTodo = async (req, res) => {
     res.render('todo/new', {lists});
 };
 
+// new To Do Page
+const create = async (req, res) => {
+    // try block to catch any errors
+    try {
+        // get the target list
+        const list = await List.findById(req.body.list);
+        // replace list string with list id object
+        req.body.list = list;
+        // create the new To Do using the request body
+        const todo = await Todo.create(req.body);
+        // add the todo to lists todos array
+        list.todos.push(todo)
+        // save changes
+        list.save()
+        // recirect back to main todos page
+        res.redirect('/todos';)
+    } catch (error) {
+        // send error as json if there is one
+        res.json(error);
+    }
+};
+
 //////////////////////////////
 // Export Controller
 //////////////////////////////
 module.exports = {
     index,
     new: newTodo,
+    create
 };
