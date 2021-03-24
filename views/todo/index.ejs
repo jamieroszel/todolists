@@ -15,8 +15,11 @@
             <div class="todoindex_list">
                 <h2 class="todoindex_list_name"><%= list.name %></h2>
                 <ul class="todoindex_todos">
-                    <% for (todo of list.todos) {%>
-                        <l1><%= todo.subject %></l1>
+                    <% for (todo of list.todos) { %>
+                        <li><%= todo.subject %> </li>
+                        <form class="delete" action="/todos/<%= todo._id %>?_method=DELETE" method="POST">
+                            <input type="submit" value="Completed"/>
+                        </form>
                     <% } %>
                 </ul>
             </div>
